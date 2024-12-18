@@ -20,7 +20,6 @@ const Home = () => {
         <MiddleCard />
         <RightBar />
       </Stack>
-      <Add />
     </Box>
   );
 };
