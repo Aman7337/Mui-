@@ -16,81 +16,77 @@ import StorefrontIcon from "@mui/icons-material/Storefront";
 import Groups2Icon from "@mui/icons-material/Groups2";
 import ArticleIcon from "@mui/icons-material/Article";
 import ModeNightIcon from "@mui/icons-material/ModeNight";
-import Add from "./Add";
 
-const SideBar = () => {
+const SideBar = ({ mode, setMode }) => {
+  const component = [
+    {
+      icon: <HouseIcon />,
+      padding: "true",
+      primary: "Home page",
+      link: "#Home",
+    },
+    {
+      icon: <ArticleIcon />,
+      padding: "true",
+      primary: "Pages",
+      link: "#Page",
+    },
+    {
+      icon: <Groups2Icon />,
+      padding: "true",
+      primary: "Groups",
+      link: "#Page",
+    },
+    {
+      icon: <StorefrontIcon />,
+      padding: "true",
+      primary: "Market Place",
+      link: "#Page",
+    },
+    {
+      icon: <PersonIcon />,
+      padding: "true",
+      primary: "Friends",
+      link: "#Page",
+    },
+    {
+      icon: <SettingsIcon />,
+      padding: "true",
+      primary: "Settings",
+      link: "#Page",
+    },
+    {
+      icon: <AccountBoxIcon />,
+      padding: "true",
+      primary: "Profile",
+      link: "#Profile",
+    },
+  ];
+
   return (
     <Box flex={1} p={2} sx={{ display: { xs: "none", sm: "block" } }}>
       <Box position="fixed" sx={{ mt: 7 }}>
         <List>
+          {component.map((e) => (
+            <ListItem disablePadding={e.padding}>
+              <ListItemButton href={e.link}>
+                <ListItemIcon>{e.icon}</ListItemIcon>
+                <ListItemText primary={e.primary} />
+              </ListItemButton>
+            </ListItem>
+          ))}
+
           <ListItem disablePadding>
-            <ListItemButton component="a" href="#home">
-              <ListItemIcon>
-                <HouseIcon />
-              </ListItemIcon>
-              <ListItemText primary="Home page" />
-            </ListItemButton>
-          </ListItem>
-          <ListItem disablePadding>
-            <ListItemButton component="a" href="">
-              <ListItemIcon>
-                <ArticleIcon />
-              </ListItemIcon>
-              <ListItemText primary="Pages" />
-            </ListItemButton>
-          </ListItem>
-          <ListItem disablePadding>
-            <ListItemButton component="a" href="">
-              <ListItemIcon>
-                <Groups2Icon />
-              </ListItemIcon>
-              <ListItemText primary="Groups" />
-            </ListItemButton>
-          </ListItem>
-          <ListItem disablePadding>
-            <ListItemButton component="a" href="">
-              <ListItemIcon>
-                <StorefrontIcon />
-              </ListItemIcon>
-              <ListItemText primary="Markit PLace" />
-            </ListItemButton>
-          </ListItem>
-          <ListItem disablePadding>
-            <ListItemButton component="a" href="">
-              <ListItemIcon>
-                <PersonIcon />
-              </ListItemIcon>
-              <ListItemText primary="Friends" />
-            </ListItemButton>
-          </ListItem>
-          <ListItem disablePadding>
-            <ListItemButton component="a" href="">
-              <ListItemIcon>
-                <SettingsIcon />
-              </ListItemIcon>
-              <ListItemText primary="Settings" />
-            </ListItemButton>
-          </ListItem>
-          <ListItem disablePadding>
-            <ListItemButton component="a" href="">
-              <ListItemIcon>
-                <AccountBoxIcon />
-              </ListItemIcon>
-              <ListItemText primary="Profile" />
-            </ListItemButton>
-          </ListItem>
-          <ListItem disablePadding>
-            <ListItemButton component="a" href="">
+            <ListItemButton href="">
               <ListItemIcon>
                 <ModeNightIcon />
               </ListItemIcon>
-              <Switch />
+              <Switch
+                onChange={(e) => setMode(mode === "light" ? "dark" : "light")}
+              />
             </ListItemButton>
           </ListItem>
         </List>
-        <Box sx={{ position: "fixed", bottom: 20 }}>
-          <Add />
-        </Box>
       </Box>
     </Box>
   );
