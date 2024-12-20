@@ -28,6 +28,37 @@ const imagesData = [
   },
 ];
 
+const AvatarData = [
+  {
+    alt: "Remy Sharp",
+    src: "https://material-ui.com/static/images/avatar/1.jpg",
+  },
+
+  {
+    alt: "Travis Howard",
+    src: "https://material-ui.com/static/images/avatar/.jpg",
+  },
+  {
+    alt: "Sharp",
+    src: "https://material-ui.com/static/images/avatar/3.jpg",
+  },
+  {
+    alt: "Denim",
+    src: "https://material-ui.com/static/images/avatar/4.jpg",
+  },
+  {
+    alt: "Panda",
+    src: "https://material-ui.com/static/images/avatar/5.jpg",
+  },
+  {
+    alt: "Panda",
+    src: "https://material-ui.com/static/images/avatar/6.jpg",
+  },
+  {
+    alt: "Panda",
+    src: "https://material-ui.com/static/images/avatar/.jpg",
+  },
+];
 const RightBar = () => {
   return (
     <Box
@@ -41,29 +72,9 @@ const RightBar = () => {
           Online Friend
         </Typography>
         <AvatarGroup max={7}>
-          <Avatar
-            alt="Remy Sharp"
-            src="https://material-ui.com/static/images/avatar/1.jpg"
-          />
-          <Avatar
-            alt="Travis Howard"
-            src="https://material-ui.com/static/images/avatar/2.jpg"
-          />
-          <Avatar alt="Walker" src="/static/images/avatar/4.jpg" />
-          <Avatar
-            alt="Cindy Baker"
-            b
-            src="https://material-ui.com/static/images/avatar/3.jpg"
-          />
-          <Avatar
-            alt="Agnes Walker"
-            src="https://material-ui.com/static/images/avatar/4.jpg"
-          />
-          <Avatar
-            alt="Trevor Henderson"
-            src="https://material-ui.com/static/images/avatar/5.jpg"
-          />
-          <Avatar alt="3" src="/static/images/avatar/5.jpg" />
+          {AvatarData.map((e) => (
+            <Avatar alt={e.alt} src={e.src} />
+          ))}
         </AvatarGroup>
 
         <Typography
@@ -76,7 +87,7 @@ const RightBar = () => {
 
         <ImageList
           sx={{ width: 300, height: 110 }}
-          cols={3}
+          cols={3}  
           rowHeight={100}
           gap={8}
         >

@@ -13,11 +13,7 @@ import LocalLibraryIcon from "@mui/icons-material/LocalLibrary";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import MailIcon from "@mui/icons-material/Mail";
 
-// const searchBar = styled("div")((Theme) => {
-//   backgriundColor: "White";
-// });
-
-const Header = () => {
+const Header = ({ mode }) => {
   return (
     <AppBar position="fixed" sx={{}}>
       <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
@@ -37,7 +33,7 @@ const Header = () => {
         </Box>
         <Box
           sx={{
-            backgroundColor: "white",
+            backgroundColor: mode === "light" ? "white" : "black",
             width: 500,
             pl: 4,
             borderRadius: "10px",
@@ -49,6 +45,8 @@ const Header = () => {
             placeholder="search..."
             sx={{
               width: { xs: "100px", sm: "400px", md: "400px", xl: "500" },
+              backgroundColor: mode === "light" ? "white" : "black",
+              color: mode === "light" ? "black" : "white",
             }}
           ></InputBase>
         </Box>

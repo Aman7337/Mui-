@@ -13,7 +13,7 @@ body,
     width: 10px,
 
 }
-
+    
 /* Track */
 
 ::-webkit-scrollbar- track{
@@ -31,4 +31,14 @@ body,
 
 ::-webkit-scrollbar-track:hover{
     background: #555;
+}
+
+.darkTheme{
+    background-color:rgba(2, 2, 2, 0.65);
+    color: white;
+}
+
+.lightTheme{
+    background-color:white;
+    color:black;
 }
